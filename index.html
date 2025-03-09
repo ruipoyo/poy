@@ -1,1 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+   <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body{text-align: center;
+        font-family: Arial, sans-serif;
+    }
 
+    h1 {
+        font-size: 2em;
+    }
+
+    button {
+        font-size: 1.5em;
+        margin: 10px;
+        padding: 10px 20px;
+    }
+
+    #result {
+        font-size: 1.8em;
+        margin-top: 20px;
+        font-weight: bold;
+
+    }
+  </style>
+    <title>じゃんけんゲーム</title>
+    <script>
+        function playGame(playerChoice) {
+            const choices = ["グー", "チョキ", "パー"];
+            const computerChoice = choices[Math.floor(Math.random() * 3)];
+            
+            let result = "";
+            if (playerChoice === computerChoice) {
+                result = "引き分け！";
+            } else if (
+                (playerChoice === "グー" && computerChoice === "チョキ") ||
+                (playerChoice === "チョキ" && computerChoice === "パー") ||
+                (playerChoice === "パー" && computerChoice === "グー")
+            ) {
+                result = "しね！";
+            } else {
+                result = "ざーこ♡";
+            }
+
+            document.getElementById("result").innerText = `あなた: ${playerChoice} | コンピューター: ${computerChoice}\n結果: ${result}`;
+        }
+    </script>
+</head>
+<body>
+    <h1>ルミナスの挑戦状2「じゃんけんゲーム！」</h1>
+    <button onclick="playGame('グー')">グー</button>
+    <button onclick="playGame('チョキ')">チョキ</button>
+    <button onclick="playGame('パー')">パー</button>
+    <p id="result"></p>
+    <img src="91199.jpg">
+</body>
+</html>
